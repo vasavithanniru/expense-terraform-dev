@@ -1,7 +1,7 @@
 module "mysql" {
     source = "terraform-aws-modules/ec2-instance/aws"
 
-    ami = data.aws_ami.vasavi-devops.id
+    ami = var.ami_id
     name = "${local.resource_name}-mysql"
 
     instance_type = "t3.micro"
@@ -20,7 +20,7 @@ module "mysql" {
 module "backend"{
     source = "terraform-aws-modules/ec2-instance/aws"
 
-    ami = data.aws_ami.vasavi-devops.id
+    ami = var.ami_id
     name = "${local.resource_name}-backend"
 
     instance_type = "t3.micro"
@@ -39,7 +39,7 @@ module "backend"{
 module "frontend"{
     source = "terraform-aws-modules/ec2-instance/aws"
 
-    ami = data.aws_ami.vasavi-devops.id
+    ami = var.ami_id
     name = "${local.resource_name}-frontend"
 
     instance_type = "t3.micro"
@@ -59,7 +59,7 @@ module "frontend"{
 module "ansible" {
   source = "terraform-aws-modules/ec2-instance/aws"
 
-  ami = data.aws_ami.vasavi-devops.id
+  ami = var.ami_id
   name = "${local.resource_name}-ansible"
 
   instance_type = "t3.micro"

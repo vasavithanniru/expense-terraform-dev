@@ -19,3 +19,7 @@ variable "bastion_tags" {
     component= "bastion"
   }
 }
+
+variable "ami_id" {
+  default = "ami-09c813fb71547fc4f"
+}
